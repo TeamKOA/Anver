@@ -64,7 +64,7 @@ namespace Anver
                 return;
             }
             FindViewById<TextView>(Resource.Id.debug).Text = "Success!";
-            AppSettings.AddOrUpdateValue("hasAuth", true);
+            AppSettings.AddOrUpdateValue("hasAuth", auth);
 
             FindViewById<Button>(Anver.Resource.Id.LoginBtn).Click -= onLoginClick;
 
@@ -141,7 +141,7 @@ namespace Anver
             FindViewById<TextView>(Resource.Id.textView1).SetText("http://www.vertretung.andreanum.de/" + weekStr + "/w/w00000.htm", TextView.BufferType.Normal);
             //Get Plan from website
             WebRequest request = WebRequest.Create("http://www.vertretung.andreanum.de/" + weekStr + "/w/w00000.htm");
-            request.Headers["Authorization"] = "Basic YW5kcmVhbnVtOlRlbGVtYW5uMTIyNQ==";
+            request.Headers["Authorization"] = "Basic " + AppSettings.GetValueOrDefault("hasAuth", "wrong");
             WebResponse response = request.GetResponse();
             Stream data = response.GetResponseStream();
             string html = String.Empty;
