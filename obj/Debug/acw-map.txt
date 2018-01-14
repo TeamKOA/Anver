@@ -1,0 +1,4 @@
+Anver.MainActivity, Anver;md594bd5368d5570af0daefa068da333996.MainActivity
+Anver.MainActivity, Anver, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md594bd5368d5570af0daefa068da333996.MainActivity
+Anver.MainActivity;md594bd5368d5570af0daefa068da333996.MainActivity
+anver.MainActivity;md594bd5368d5570af0daefa068da333996.MainActivity
