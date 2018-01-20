@@ -36,18 +36,19 @@ namespace Anver
             SetContentView(Resource.Layout.Login);
 
             FindViewById<Button>(Anver.Resource.Id.LoginBtn).Click += onLoginClick;
-           
+
         }
 
         void onLoginClick(object sender, EventArgs e)
         {
+            string user = FindViewById<TextView>(Resource.Id.userText).Text;
+            string pass = FindViewById<TextView>(Resource.Id.pwText).Text;
+
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes((user + ":" + pass).ToCharArray());
+            string auth = System.Convert.ToBase64String(bytes);
+
             try
             {
-                string user = FindViewById<TextView>(Resource.Id.userText).Text;
-                string pass = FindViewById<TextView>(Resource.Id.pwText).Text;
-
-                byte[] bytes = System.Text.Encoding.UTF8.GetBytes((user + ":" + pass).ToCharArray());
-                string auth = System.Convert.ToBase64String(bytes);
 
                 WebRequest request = WebRequest.Create("http://www.vertretung.andreanum.de/");
                 request.Headers["Authorization"] = "Basic " + auth;
@@ -58,7 +59,8 @@ namespace Anver
                 {
                     html = sr.ReadToEnd();
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 FindViewById<TextView>(Resource.Id.debug).Text = ex.Message;
                 return;
@@ -70,7 +72,7 @@ namespace Anver
 
             InitMain();
         }
-        
+
         void InitMain()
         {
             SetContentView(Resource.Layout.Main);
@@ -153,4 +155,6 @@ namespace Anver
         }
     }
 }
+
+
 

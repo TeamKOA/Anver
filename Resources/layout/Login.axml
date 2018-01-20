@@ -44,7 +44,7 @@
         p1:id="@+id/LoginBtn"
         p1:layout_toRightOf="@id/LoginBtn" />
     <TextView
-        p1:text="Debug"
+        p1:text="Gib Benutzername und Passwort (wie auf der Website) ein. Dies musst du nur einmal tun, sie werden automatisch gespeichert."
         p1:textAppearance="?android:attr/textAppearanceSmall"
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"
